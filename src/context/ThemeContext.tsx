@@ -45,10 +45,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     setMounted(true);
 
-    // Apply to DOM
+    // Apply to HTML element
     const root = document.documentElement;
     root.setAttribute("data-theme", theme);
     root.style.colorScheme = theme;
+
+    // Also apply to body as fallback
+    document.body.setAttribute("data-theme", theme);
 
     // Save to localStorage
     localStorage.setItem("theme", theme);

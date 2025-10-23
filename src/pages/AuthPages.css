@@ -1,34 +1,35 @@
-/* pages/AuthPages.css */
-
 .auth-container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
+  transition: background 0.3s ease;
 }
 
 .auth-box {
-  background: white;
+  background: var(--bg-primary);
   border-radius: 12px;
   padding: 40px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
   width: 100%;
   max-width: 420px;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .auth-title {
   text-align: center;
   margin: 0 0 30px 0;
   font-size: 2rem;
-  color: #1a1a1a;
+  color: var(--text-primary);
 }
 
 .auth-error {
-  background: #fff5f5;
+  background: rgba(255, 107, 107, 0.1);
   border: 2px solid #ff6b6b;
-  color: #c92a2a;
+  color: #ff6b6b;
   padding: 12px 16px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -39,7 +40,7 @@
   display: flex;
   gap: 10px;
   margin-bottom: 30px;
-  background: #f0f0f0;
+  background: var(--bg-secondary);
   padding: 4px;
   border-radius: 8px;
 }
@@ -53,11 +54,11 @@
   font-weight: 600;
   border-radius: 6px;
   transition: all 0.3s ease;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .toggle-btn.active {
-  background: white;
+  background: var(--bg-primary);
   color: #e50914;
   box-shadow: 0 2px 8px rgba(229, 9, 20, 0.1);
 }
@@ -73,7 +74,7 @@
 
 .social-label {
   text-align: center;
-  color: #666;
+  color: var(--text-secondary);
   margin-bottom: 20px;
   font-weight: 500;
 }
@@ -90,18 +91,19 @@
   justify-content: center;
   gap: 10px;
   padding: 12px 20px;
-  border: 2px solid #ddd;
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease;
-  background: white;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   font-size: 1rem;
 }
 
 .social-btn:hover:not(:disabled) {
   border-color: #999;
-  background: #f8f8f8;
+  background: var(--hover-bg);
 }
 
 .social-btn:disabled {
@@ -109,37 +111,10 @@
   cursor: not-allowed;
 }
 
-.social-btn.facebook {
-  color: #1877f2;
-}
-
-.social-btn.facebook:hover:not(:disabled) {
-  background: #f0f2f5;
-  border-color: #1877f2;
-}
-
-.social-btn.google {
-  color: #ea4335;
-}
-
-.social-btn.google:hover:not(:disabled) {
-  background: #fce5e5;
-  border-color: #ea4335;
-}
-
-.social-btn.apple {
-  color: #000;
-}
-
-.social-btn.apple:hover:not(:disabled) {
-  background: #f5f5f5;
-  border-color: #000;
-}
-
 .auth-footer {
   text-align: center;
   margin-top: 20px;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 .auth-link {
@@ -151,43 +126,6 @@
 
 .auth-link:hover {
   color: #c20812;
-}
-
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-  .auth-box {
-    background: #1a1a1a;
-    border: 1px solid #333;
-  }
-
-  .auth-title {
-    color: #e0e0e0;
-  }
-
-  .toggle-btn {
-    color: #aaa;
-  }
-
-  .toggle-btn.active {
-    background: #2a2a2a;
-    color: #e50914;
-  }
-
-  .social-label,
-  .auth-footer {
-    color: #aaa;
-  }
-
-  .social-btn {
-    background: #2a2a2a;
-    border-color: #444;
-    color: #e0e0e0;
-  }
-
-  .social-btn:hover:not(:disabled) {
-    background: #333;
-    border-color: #555;
-  }
 }
 
 /* Responsive */
