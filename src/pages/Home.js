@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-// import { useTheme } from '../context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 import tmdbService from '../services/tmdbService';
 import MovieCard from '../components/common/MovieCard';
 import Button from '../components/common/Button';
@@ -14,6 +14,7 @@ import './Home.css';
  */
 export const Home = () => {
   const navigate = useNavigate();
+   const { theme } = useTheme();
   const { currentUser, logout } = useAuth();
   const [popularMovies, setPopularMovies] = useState([]);
   const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
