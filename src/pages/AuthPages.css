@@ -1,0 +1,207 @@
+/* pages/AuthPages.css */
+
+.auth-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.auth-box {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+}
+
+.auth-title {
+  text-align: center;
+  margin: 0 0 30px 0;
+  font-size: 2rem;
+  color: #1a1a1a;
+}
+
+.auth-error {
+  background: #fff5f5;
+  border: 2px solid #ff6b6b;
+  color: #c92a2a;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.auth-method-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  background: #f0f0f0;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: #666;
+}
+
+.toggle-btn.active {
+  background: white;
+  color: #e50914;
+  box-shadow: 0 2px 8px rgba(229, 9, 20, 0.1);
+}
+
+.auth-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.social-register {
+  margin: 30px 0;
+}
+
+.social-label {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  background: white;
+  font-size: 1rem;
+}
+
+.social-btn:hover:not(:disabled) {
+  border-color: #999;
+  background: #f8f8f8;
+}
+
+.social-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.social-btn.facebook {
+  color: #1877f2;
+}
+
+.social-btn.facebook:hover:not(:disabled) {
+  background: #f0f2f5;
+  border-color: #1877f2;
+}
+
+.social-btn.google {
+  color: #ea4335;
+}
+
+.social-btn.google:hover:not(:disabled) {
+  background: #fce5e5;
+  border-color: #ea4335;
+}
+
+.social-btn.apple {
+  color: #000;
+}
+
+.social-btn.apple:hover:not(:disabled) {
+  background: #f5f5f5;
+  border-color: #000;
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 20px;
+  color: #666;
+}
+
+.auth-link {
+  color: #e50914;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-link:hover {
+  color: #c20812;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .auth-box {
+    background: #1a1a1a;
+    border: 1px solid #333;
+  }
+
+  .auth-title {
+    color: #e0e0e0;
+  }
+
+  .toggle-btn {
+    color: #aaa;
+  }
+
+  .toggle-btn.active {
+    background: #2a2a2a;
+    color: #e50914;
+  }
+
+  .social-label,
+  .auth-footer {
+    color: #aaa;
+  }
+
+  .social-btn {
+    background: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+
+  .social-btn:hover:not(:disabled) {
+    background: #333;
+    border-color: #555;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .auth-container {
+    padding: 15px;
+  }
+
+  .auth-box {
+    padding: 30px 20px;
+  }
+
+  .auth-title {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+  }
+}

@@ -1,0 +1,93 @@
+/* components/common/InputField.css */
+
+.input-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.input-label .required {
+  color: #e50914;
+  margin-left: 4px;
+}
+
+.input-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #f8f8f8;
+}
+
+.input-control:focus {
+  outline: none;
+  border-color: #e50914;
+  background-color: white;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+
+.input-control:hover:not(:focus) {
+  border-color: #bbb;
+}
+
+.input-control.input-error {
+  border-color: #ff6b6b;
+  background-color: #fff5f5;
+}
+
+.input-control.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.875rem;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.error-message::before {
+  content: '⚠';
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .input-label {
+    color: #e0e0e0;
+  }
+
+  .input-control {
+    background-color: #2a2a2a;
+    border-color: #444;
+    color: #e0e0e0;
+  }
+
+  .input-control:focus {
+    background-color: #333;
+    border-color: #e50914;
+  }
+
+  .input-control.input-error {
+    background-color: #3a2a2a;
+  }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .input-control {
+    padding: 10px 12px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}

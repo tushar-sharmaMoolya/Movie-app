@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "CineHub",
+    "slogan": "Temukan Film, Buat Daftar Anda"
+  },
+  "auth": {
+    "login": "Masuk",
+    "register": "Daftar",
+    "signup": "Buat Akun",
+    "logout": "Keluar",
+    "email": "Email",
+    "password": "Kata Sandi",
+    "confirmPassword": "Konfirmasi Kata Sandi",
+    "displayName": "Nama Tampilan",
+    "createAccount": "Buat Akun",
+    "alreadyHaveAccount": "Sudah memiliki akun?",
+    "dontHaveAccount": "Belum memiliki akun?",
+    "loginHere": "Masuk di sini",
+    "signupHere": "Daftar di sini",
+    "signInWith": "Masuk dengan {{provider}}",
+    "signUpWith": "Daftar dengan {{provider}}"
+  },
+  "validation": {
+    "required": "{{field}} diperlukan",
+    "invalidEmail": "Format email tidak valid",
+    "passwordTooShort": "Kata sandi harus minimal 6 karakter",
+    "passwordsNotMatch": "Kata sandi tidak cocok",
+    "emailExists": "Email sudah terdaftar",
+    "invalidCredentials": "Kredensial tidak valid"
+  },
+  "home": {
+    "welcome": "Selamat datang, {{name}}",
+    "popular": "Populer",
+    "nowPlaying": "Sedang Tayang",
+    "upcoming": "Akan Datang",
+    "topRated": "Teratas",
+    "searchMovies": "Cari film...",
+    "favorites": "Favorit",
+    "darkMode": "Mode Gelap",
+    "lightMode": "Mode Terang",
+    "language": "Bahasa",
+    "english": "English",
+    "indonesian": "Bahasa Indonesia",
+    "noResults": "Tidak ada film yang ditemukan"
+  },
+  "movie": {
+    "title": "Judul",
+    "rating": "Rating",
+    "year": "Tahun",
+    "released": "Dirilis",
+    "runtime": "Durasi",
+    "genres": "Genre",
+    "synopsis": "Sinopsis",
+    "director": "Sutradara",
+    "cast": "Pemeran",
+    "trailer": "Trailer",
+    "watchTrailer": "Tonton Trailer",
+    "addToFavorites": "Tambah ke Favorit",
+    "removeFromFavorites": "Hapus dari Favorit",
+    "favorited": "Sudah Difavoritkan",
+    "notFound": "Film tidak ditemukan",
+    "hours": "j",
+    "minutes": "m"
+  },
+  "search": {
+    "title": "Cari Film",
+    "results": "Menemukan {{count}} hasil",
+    "results_plural": "Menemukan {{count}} hasil",
+    "noResults": "Tidak ada film yang ditemukan untuk \"{{query}}\"",
+    "previous": "Sebelumnya",
+    "next": "Selanjutnya",
+    "page": "Halaman {{current}} dari {{total}}"
+  },
+  "favorites": {
+    "title": "Favorit Saya",
+    "empty": "Belum Ada Favorit",
+    "emptyMessage": "Mulai menambahkan film ke favorit Anda untuk melihatnya di sini!",
+    "clearAll": "Hapus Semua",
+    "confirm": "Apakah Anda yakin ingin menghapus semua favorit?",
+    "count": "Anda memiliki {{count}} film di favorit Anda",
+    "count_plural": "Anda memiliki {{count}} film di favorit Anda",
+    "explorMovies": "Jelajahi Film"
+  },
+  "button": {
+    "back": "Kembali",
+    "home": "Beranda",
+    "search": "Cari",
+    "cancel": "Batal",
+    "submit": "Kirim",
+    "loading": "Memuat..."
+  },
+  "error": {
+    "title": "Kesalahan",
+    "message": "Terjadi kesalahan",
+    "tryAgain": "Coba Lagi",
+    "backToHome": "Kembali ke Beranda"
+  },
+  "common": {
+    "loading": "Memuat...",
+    "error": "Kesalahan",
+    "success": "Berhasil",
+    "close": "Tutup",
+    "open": "Buka"
+  }
+}

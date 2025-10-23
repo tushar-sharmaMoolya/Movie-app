@@ -1,0 +1,105 @@
+{
+  "app": {
+    "name": "CineHub",
+    "slogan": "Discover Movies, Create Your List"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "signup": "Sign Up",
+    "logout": "Logout",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "displayName": "Display Name",
+    "createAccount": "Create Account",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don't have an account?",
+    "loginHere": "Log in here",
+    "signupHere": "Sign up here",
+    "signInWith": "Sign in with {{provider}}",
+    "signUpWith": "Sign up with {{provider}}"
+  },
+  "validation": {
+    "required": "{{field}} is required",
+    "invalidEmail": "Invalid email format",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "passwordsNotMatch": "Passwords do not match",
+    "emailExists": "Email already registered",
+    "invalidCredentials": "Invalid credentials"
+  },
+  "home": {
+    "welcome": "Welcome, {{name}}",
+    "popular": "Popular",
+    "nowPlaying": "Now Playing",
+    "upcoming": "Upcoming",
+    "topRated": "Top Rated",
+    "searchMovies": "Search movies...",
+    "favorites": "Favorites",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "language": "Language",
+    "english": "English",
+    "indonesian": "Bahasa Indonesia",
+    "noResults": "No movies found"
+  },
+  "movie": {
+    "title": "Title",
+    "rating": "Rating",
+    "year": "Year",
+    "released": "Released",
+    "runtime": "Runtime",
+    "genres": "Genres",
+    "synopsis": "Synopsis",
+    "director": "Director",
+    "cast": "Cast",
+    "trailer": "Trailer",
+    "watchTrailer": "Watch Trailer",
+    "addToFavorites": "Add to Favorites",
+    "removeFromFavorites": "Remove from Favorites",
+    "favorited": "Favorited",
+    "notFound": "Movie not found",
+    "hours": "h",
+    "minutes": "m"
+  },
+  "search": {
+    "title": "Search Movies",
+    "results": "Found {{count}} result",
+    "results_plural": "Found {{count}} results",
+    "noResults": "No movies found for \"{{query}}\"",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {{current}} of {{total}}"
+  },
+  "favorites": {
+    "title": "My Favorites",
+    "empty": "No Favorites Yet",
+    "emptyMessage": "Start adding movies to your favorites to see them here!",
+    "clearAll": "Clear All",
+    "confirm": "Are you sure you want to remove all favorites?",
+    "count": "You have {{count}} movie in your favorites",
+    "count_plural": "You have {{count}} movies in your favorites",
+    "explorMovies": "Explore Movies"
+  },
+  "button": {
+    "back": "Back",
+    "home": "Home",
+    "search": "Search",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "loading": "Loading..."
+  },
+  "error": {
+    "title": "Error",
+    "message": "Something went wrong",
+    "tryAgain": "Try Again",
+    "backToHome": "Back to Home"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "open": "Open"
+  }
+}
