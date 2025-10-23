@@ -6,6 +6,7 @@ import MovieCard from '../components/common/MovieCard';
 import Button from '../components/common/Button';
 import { FiArrowLeft, FiSearch } from 'react-icons/fi';
 import './Search.css';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Search page component
@@ -13,6 +14,7 @@ import './Search.css';
 export const Search = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+   const { t } = useTranslation();
   const query = searchParams.get('q') || '';
 
   const [movies, setMovies] = useState([]);
@@ -75,20 +77,19 @@ export const Search = () => {
 
   return (
     <div className="search-page">
-      {/* Header */}
       <div className="search-header">
         <Button variant="ghost" onClick={() => navigate('/')} className="back-btn">
-          <FiArrowLeft /> Back to Home
+          <FiArrowLeft /> {t('button.back')}
         </Button>
 
-        <h1 className="search-title">Search Movies</h1>
+        <h1 className="search-title">{t('search.title')}</h1>
 
         <form onSubmit={handleSearch} className="search-form">
           <div className="search-input-group">
             <FiSearch className="search-icon" />
             <input
               type="text"
-              placeholder="Search for movies..."
+              placeholder={t('search.title')}
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               className="search-input"
@@ -96,33 +97,32 @@ export const Search = () => {
             />
           </div>
           <Button type="submit" variant="primary" disabled={loading}>
-            Search
+            {t('button.search')}
           </Button>
         </form>
       </div>
 
-      {/* Results */}
       <div className="search-results-container">
         {error && <div className="search-error">{error}</div>}
 
         {loading && (
           <div className="search-loading">
             <div className="spinner" />
-            Searching...
+            {t('common.loading')}
           </div>
         )}
 
         {!loading && query && movies.length === 0 && !error && (
           <div className="search-empty">
             <FiSearch className="empty-icon" />
-            <p>No movies found for "{query}"</p>
+            <p>{t('search.noResults', { query })}</p>
           </div>
         )}
 
         {!loading && movies.length > 0 && (
           <div className="search-results">
             <div className="results-info">
-              Found {totalResults} result{totalResults !== 1 ? 's' : ''} for "{query}"
+              {t('search.results', { count: totalResults })}
             </div>
 
             <div className="movies-grid">
@@ -137,7 +137,6 @@ export const Search = () => {
               ))}
             </div>
 
-            {/* Pagination */}
             {totalPages > 1 && (
               <div className="pagination">
                 <Button
@@ -145,11 +144,11 @@ export const Search = () => {
                   onClick={handlePreviousPage}
                   disabled={page <= 1 || loading}
                 >
-                  Previous
+                  {t('search.previous')}
                 </Button>
 
                 <span className="pagination-info">
-                  Page {page} of {totalPages}
+                  {t('search.page', { current: page, total: totalPages })}
                 </span>
 
                 <Button
@@ -157,7 +156,7 @@ export const Search = () => {
                   onClick={handleNextPage}
                   disabled={page >= totalPages || loading}
                 >
-                  Next
+                  {t('search.next')}
                 </Button>
               </div>
             )}

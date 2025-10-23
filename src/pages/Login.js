@@ -8,6 +8,7 @@ import Button from '../components/common/Button';
 import ThemeToggle from '../components/common/ThemeToggle';
 import { FaFacebook, FaGoogle, FaApple } from 'react-icons/fa';
 import './AuthPages.css';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Login page component
@@ -15,6 +16,7 @@ import './AuthPages.css';
 export const Login = () => {
   const navigate = useNavigate();
   const { login } = useAuth();
+   const { t, i18n } = useTranslation();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [method, setMethod] = useState('email');
@@ -70,11 +72,13 @@ export const Login = () => {
     }
   };
 
-  return (
+   return (
     <div className="auth-container">
       <div className="auth-box">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <h1 className="auth-title" style={{ margin: 0 }}>Welcome Back</h1>
+          <h1 className="auth-title" style={{ margin: 0 }}>
+            {t('auth.login')}
+          </h1>
           <ThemeToggle />
         </div>
 
@@ -85,20 +89,20 @@ export const Login = () => {
             className={`toggle-btn ${method === 'email' ? 'active' : ''}`}
             onClick={() => setMethod('email')}
           >
-            Email
+            {t('auth.email')}
           </button>
           <button
             className={`toggle-btn ${method === 'social' ? 'active' : ''}`}
             onClick={() => setMethod('social')}
           >
-            Social
+            {t('common.social')}
           </button>
         </div>
 
         {method === 'email' ? (
           <form onSubmit={handleEmailLogin}>
             <InputField
-              label="Email"
+              label={t('auth.email')}
               type="email"
               placeholder="your@email.com"
               required
@@ -108,7 +112,7 @@ export const Login = () => {
             />
 
             <InputField
-              label="Password"
+              label={t('auth.password')}
               type="password"
               placeholder="••••••••"
               required
@@ -118,12 +122,12 @@ export const Login = () => {
             />
 
             <Button type="submit" loading={loading} size="lg" className="auth-btn">
-              Log In
+              {t('auth.login')}
             </Button>
           </form>
         ) : (
           <div className="social-register">
-            <p className="social-label">Sign in with social account</p>
+            <p className="social-label">{t('auth.signInWith', { provider: 'Social' })}</p>
             <div className="social-buttons">
               <button
                 className="social-btn facebook"
@@ -151,9 +155,9 @@ export const Login = () => {
         )}
 
         <p className="auth-footer">
-          Don't have an account?{' '}
+          {t('auth.dontHaveAccount')}{' '}
           <Link to="/register" className="auth-link">
-            Sign up here
+            {t('auth.signupHere')}
           </Link>
         </p>
       </div>

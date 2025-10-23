@@ -7,6 +7,7 @@ import Button from '../components/common/Button';
 import { FiArrowLeft, FiPlay, FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 import './MovieDetails.css';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Movie Details page component
@@ -15,6 +16,7 @@ export const MovieDetails = () => {
   const { movieId } = useParams();
   const navigate = useNavigate();
   const { isFavorite, addFavorite, removeFavorite } = useFavorites();
+  const { t } = useTranslation();
 
   const [movie, setMovie] = useState(null);
   const [credits, setCredits] = useState(null);
@@ -124,33 +126,35 @@ export const MovieDetails = () => {
             <h1 className="movie-title">
               {movie.title}
               {movie.release_date && (
-                <span className="movie-year">({new Date(movie.release_date).getFullYear()})</span>
+                <span className="movie-year">
+                  ({new Date(movie.release_date).getFullYear()})
+                </span>
               )}
             </h1>
 
-            {/* Meta information */}
             <div className="movie-meta">
               {movie.vote_average && (
                 <span className="meta-item">
-                  <span className="label">Rating:</span>
+                  <span className="label">{t('movie.rating')}:</span>
                   <strong className="rating">⭐ {movie.vote_average.toFixed(1)}/10</strong>
                 </span>
               )}
               {movie.release_date && (
                 <span className="meta-item">
-                  <span className="label">Released:</span>
+                  <span className="label">{t('movie.released')}:</span>
                   <strong>{new Date(movie.release_date).toLocaleDateString()}</strong>
                 </span>
               )}
               {movie.runtime && (
                 <span className="meta-item">
-                  <span className="label">Runtime:</span>
-                  <strong>{runtime}</strong>
+                  <span className="label">{t('movie.runtime')}:</span>
+                  <strong>
+                    {Math.floor(movie.runtime / 60)}{t('movie.hours')} {movie.runtime % 60}{t('movie.minutes')}
+                  </strong>
                 </span>
               )}
             </div>
 
-            {/* Genres */}
             {movie.genres && movie.genres.length > 0 && (
               <div className="genres">
                 {movie.genres.map((genre) => (
@@ -161,22 +165,19 @@ export const MovieDetails = () => {
               </div>
             )}
 
-            {/* Synopsis */}
             {movie.overview && (
               <div className="synopsis">
-                <h3>Synopsis</h3>
+                <h3>{t('movie.synopsis')}</h3>
                 <p>{movie.overview}</p>
               </div>
             )}
 
-            {/* Director */}
             {director && (
               <div className="director">
-                <strong>Director:</strong> {director.name}
+                <strong>{t('movie.director')}:</strong> {director.name}
               </div>
             )}
 
-            {/* Actions */}
             <div className="movie-actions">
               {trailerUrl && (
                 <Button
@@ -185,7 +186,7 @@ export const MovieDetails = () => {
                   onClick={() => setShowTrailer(true)}
                   className="trailer-btn"
                 >
-                  <FiPlay /> Watch Trailer
+                  <FiPlay /> {t('movie.watchTrailer')}
                 </Button>
               )}
               <Button
@@ -194,16 +195,15 @@ export const MovieDetails = () => {
                 onClick={handleFavoriteClick}
               >
                 {favorited ? <FaHeart /> : <FiHeart />}
-                {favorited ? 'Favorited' : 'Add to Favorites'}
+                {favorited ? t('movie.removeFromFavorites') : t('movie.addToFavorites')}
               </Button>
             </div>
           </div>
         </div>
 
-        {/* Cast */}
         {cast.length > 0 && (
           <section className="cast-section">
-            <h3>Cast</h3>
+            <h3>{t('movie.cast')}</h3>
             <div className="cast-grid">
               {cast.map((actor) => (
                 <div key={actor.id} className="cast-member">
@@ -218,25 +218,6 @@ export const MovieDetails = () => {
               ))}
             </div>
           </section>
-        )}
-
-        {/* Trailer Modal */}
-        {showTrailer && trailerUrl && (
-          <div className="trailer-modal" onClick={() => setShowTrailer(false)}>
-            <div className="trailer-container" onClick={(e) => e.stopPropagation()}>
-              <button className="close-button" onClick={() => setShowTrailer(false)}>
-                ✕
-              </button>
-              <iframe
-                width="100%"
-                height="100%"
-                src={trailerUrl}
-                title="Movie Trailer"
-                frameBorder="0"
-                allowFullScreen
-              />
-            </div>
-          </div>
         )}
       </div>
     </div>

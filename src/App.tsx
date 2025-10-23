@@ -18,6 +18,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import MovieDetails from "./pages/MovieDetails";
 import Favorites from "./pages/Favorites";
+import "./i18n/config";
 
 // Styles
 import "./App.css";

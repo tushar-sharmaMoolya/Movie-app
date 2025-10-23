@@ -8,6 +8,7 @@ import Button from '../components/common/Button';
 import ThemeToggle from '../components/common/ThemeToggle';
 import { FiLogOut, FiSearch, FiHeart } from 'react-icons/fi';
 import './Home.css';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Home page component with movie discovery
@@ -23,6 +24,7 @@ export const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     loadMovies();
@@ -62,6 +64,9 @@ export const Home = () => {
     logout();
     navigate('/login');
   };
+   const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
 
   if (loading) {
     return (
@@ -74,9 +79,9 @@ export const Home = () => {
   return (
     <div className="home">
       {/* Header */}
-      <header className="home-header">
+         <header className="home-header">
         <div className="header-container">
-          <h1 className="app-logo">🎬 CineHub</h1>
+          <h1 className="app-logo">🎬 {t('app.name')}</h1>
 
           <div className="header-search">
             <form onSubmit={handleSearch}>
@@ -84,7 +89,7 @@ export const Home = () => {
                 <FiSearch className="search-icon" />
                 <input
                   type="text"
-                  placeholder="Search movies..."
+                  placeholder={t('home.searchMovies')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="search-input"
@@ -96,19 +101,38 @@ export const Home = () => {
           <div className="header-actions">
             <ThemeToggle />
 
+            {/* Language Switcher */}
+            <select 
+              value={i18n.language} 
+              onChange={(e) => changeLanguage(e.target.value)}
+              style={{
+                padding: '8px 12px',
+                borderRadius: '8px',
+                border: '1px solid rgba(255,255,255,0.2)',
+                background: 'rgba(255,255,255,0.1)',
+                color: 'white',
+                cursor: 'pointer'
+              }}
+            >
+              <option value="en">{t('home.english')}</option>
+              <option value="id">{t('home.indonesian')}</option>
+            </select>
+
             <Button
               variant="ghost"
               size="sm"
               onClick={() => navigate('/favorites')}
-              title="View favorites"
+              title={t('home.favorites')}
             >
-              <FiHeart /> Favorites
+              <FiHeart /> {t('home.favorites')}
             </Button>
 
             <div className="user-menu">
-              <span className="user-name">Hi, {currentUser?.displayName || currentUser?.email}</span>
+              <span className="user-name">
+                {t('home.welcome', { name: currentUser?.displayName || currentUser?.email })}
+              </span>
               <Button variant="secondary" size="sm" onClick={handleLogout}>
-                <FiLogOut /> Logout
+                <FiLogOut /> {t('auth.logout')}
               </Button>
             </div>
           </div>
